@@ -19,6 +19,16 @@
         margin-left: auto;
         margin-right: auto;
     }
+    .upgrade {
+        background-image: url(upgrBACKGROUND.png);
+        height: 140px;
+        width: 469px;
+        border-color: transparent;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 20px;
+    }
 </style>
 <head>
     <meta charset="UTF-8">
@@ -31,18 +41,29 @@
 
     <input type="button" id="cookie" class="cookie" onclick="cookieClicked()">
 
+    <input type="button" id="upgrade1" class="upgrade" value="Strength 1 (2x cookies x click) - 100 cookies" onclick="upgrade1()" disabled>
+
 </body>
 <script>
     var cookies = 0;
+    var multiplier = 1;
     
-    
+    function upgrade1() {
+        document.getElementById('upgrade1').disabled = true;
+        document.getElementById('upgrade1').value = "Strength 1 (2x cookies x click) - Bought";
+        multiplier = 2;
+    }
     function showCookies() {
-        elem = document.getElementById('amountCookies');
+        let elem = document.getElementById('amountCookies');
         elem.innerHTML = "Your cookies: " + cookies;
+
+        if (multiplier == 1 && cookies >= 100) {
+            document.getElementById('upgrade1').disabled = false;
+        }
     }
 
     function cookieClicked() {
-        cookies++;
+        cookies += 1 * multiplier;
         showCookies();
     }
 </script>
