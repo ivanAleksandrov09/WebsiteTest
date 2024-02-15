@@ -1,11 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    .title {
+        font-size: 80px;
+        text-align: center;
+    }
+    .data {
+        font-size: 20px;
+        text-align: center;
+    }
+    .cookie {
+        background-image: url(imgCookie.png);
+        background-color: transparent;
+        height: 225px;
+        width: 225px;
+        border-color: transparent;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cookie clicker</title>
 </head>
 <body>
-    
+    <p class="title">Cookie clicker</p>
+    <p id="amountCookies" class="data">Your cookies: 0</p>>
+
+    <input type="button" id="cookie" class="cookie" onclick="cookieClicked()">
+
 </body>
+<script>
+    var cookies = 0;
+    
+    
+    function showCookies() {
+        elem = document.getElementById('amountCookies');
+        elem.innerHTML = "Your cookies: " + cookies;
+    }
+
+    function cookieClicked() {
+        cookies++;
+        showCookies();
+    }
+</script>
+
 </html>
