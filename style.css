@@ -1,0 +1,28 @@
+.title {
+        font-size: 80px;
+        text-align: center;
+}
+    .data {
+        font-size: 20px;
+        text-align: center;
+}
+    .cookie {
+        background-image: url(imgCookie.png);
+        background-color: transparent;
+        height: 225px;
+        width: 225px;
+        border-color: transparent;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+}
+    .upgrade {
+        background-image: url(upgrBACKGROUND.png);
+        height: 140px;
+        width: 469px;
+        border-color: transparent;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 20px;
+}

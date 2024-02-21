@@ -1,36 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    .title {
-        font-size: 80px;
-        text-align: center;
-    }
-    .data {
-        font-size: 20px;
-        text-align: center;
-    }
-    .cookie {
-        background-image: url(imgCookie.png);
-        background-color: transparent;
-        height: 225px;
-        width: 225px;
-        border-color: transparent;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .upgrade {
-        background-image: url(upgrBACKGROUND.png);
-        height: 140px;
-        width: 469px;
-        border-color: transparent;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 20px;
-    }
-</style>
 <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="functions.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie clicker</title>
@@ -45,59 +17,5 @@
     <input type="button" id="upgrade2" class="upgrade" value="Cookies per second (1 CPS) - 125 cookies" onclick="upgrade2()" disabled>
 
 </body>
-<script>
-    var cookies = 0;
-    var multiplier = 1;
-    var cookiesPerSecond = 0;
-    var upgradeStatus = [false, false];
-
-    function checkBalance() {
-        if (upgradeStatus[0] == false) {
-            if (multiplier == 1 && cookies >= 100) {
-                document.getElementById('upgrade1').disabled = false;
-            } else {
-                document.getElementById('upgrade1').disabled = true;
-            }
-        }
-        if (upgradeStatus[1] == false) {
-            if (cookiesPerSecond == 0 && cookies >= 125) {
-                document.getElementById('upgrade2').disabled = false;
-            } else {
-                document.getElementById('upgrade2').disabled = true;
-            }
-        }
-    }
-    function CookieIncrement() {
-        cookies += cookiesPerSecond;
-        showCookies();
-    }
-    function upgrade1() {
-        upgradeStatus[0] = true;
-        document.getElementById('upgrade1').value = "Strength 1 (2x cookies x click) - Bought";
-        document.getElementById('upgrade1').disabled = true;
-        multiplier = 2;
-        cookies = cookies - 100;
-        showCookies();
-    }
-    function upgrade2() {
-        upgradeStatus[1] = true;
-        document.getElementById('upgrade2').value = "1 Cookies per second - 125 cookies - Bought";
-        document.getElementById('upgrade2').disabled = true;
-        cookiesPerSecond = 1;
-        cookies = cookies - 125;
-        showCookies();
-        setInterval(CookieIncrement, 1000);
-    }
-    function showCookies() {
-        let elem = document.getElementById('amountCookies');
-        elem.innerHTML = "Your cookies: " + cookies;
-        checkBalance();
-    }
-
-    function cookieClicked() {
-        cookies += 1 * multiplier;
-        showCookies();
-    }
-</script>
 
 </html>
